@@ -1,0 +1,145 @@
+/* .container{
+    border: 1px solid red;
+    height: 100vh;
+    width: 100%;
+} */
+
+.header {
+    background-color: #090909;
+    padding: 13px;
+    width: 100.7%;
+    &__text {
+        color: white;
+        font-size: 1.3rem;
+    }
+    &__image {
+        height: 40px;
+        width: auto;
+        color: white;
+    }
+}
+
+
+.grid-container {
+    gap: 20px;
+    display: grid;
+    padding: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 300px auto;
+}
+
+
+.body {
+
+    &__artist {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        height: 50vh;
+    }
+    &__songs {
+        grid-column: 2/5;
+        grid-row: 1/2;
+    }
+    &__album {
+        background-color: red;
+        grid-column: 1/5;
+    }
+    &__title {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 28px;
+        text-transform: none;
+        margin-bottom: 10px;
+        color: white;
+    }
+}
+
+.main-container {
+    background-color: #121212;
+    height: 100%;
+}
+
+.form-control {
+    border-radius: 2rem;
+}
+
+
+
+.Cards {
+    background-color: #181818;
+    height: 216px;
+    width: 424px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    padding: 1rem;
+
+    &__image {
+        height: 90px;
+        width: 90px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+    &__subtext {
+        background-color: #131313;
+        padding: 5px 10px;
+        border-radius: 15px;
+        width: 4.1rem;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    &:hover {
+        background-color: #282828;
+    }
+}
+
+
+.Album-Cards {
+    background-color: #181818;
+    border-radius: 5px;
+   width: 189px;
+    color: white;
+    padding: 1rem;
+
+    &__image {
+        height: 160px;
+        width: 160px;
+        margin-bottom: 20px;
+    }
+    &__subtext {
+        width: 4.1rem;
+        font-size: 12px;
+    }
+    &:hover {
+        background-color: #282828;
+    }
+}
+
+
+
+
+
+.album-cards{
+    display: flex;
+}
+
+.Lists {
+    position: relative;
+    font-size: 13px;
+    left: 10px;
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 1px;
+    color: white;
+    &__image {
+        height: 40px;
+        width: 40px;
+    }
+    &:hover {
+        border-radius: 5px;
+        background-color: #2a2a2a;
+    }
+}
