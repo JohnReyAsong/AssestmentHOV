@@ -8,7 +8,7 @@ const Songs = (props) => {
     <>
       <div className="body__title">Songs</div>
 
-      {artistAlbum.slice(0, 4).map((album) => (
+      {artistAlbum.slice(1, 5).map((album) => (
         <Lists
           image={album.image}
           album={album.name}

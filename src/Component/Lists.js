@@ -16,8 +16,8 @@ const List = ({ image, album, key, artist }) => {
         </Row>
       </Col>
 
-      <Col lg="auto">
-        <div>4:00</div>
+      <Col lg="auto" className="my-auto">
+        <h6>3:58</h6>
       </Col>
     </Row>
   );
