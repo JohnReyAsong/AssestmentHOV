@@ -1,23 +1,23 @@
-import React from 'react'
-import Lists from './Lists';
+import React from "react";
+import Lists from "./Lists";
 
-const Songs = () => {
-    return (
-        <>
-            <div className="body__title">
-                Songs
-            </div>
+const Songs = (props) => {
+  let artistAlbum = props.albums;
 
-            <Lists />
-            <Lists />
-            <Lists />
-            <Lists />
+  return (
+    <>
+      <div className="body__title">Songs</div>
 
+      {artistAlbum.slice(0, 4).map((album) => (
+        <Lists
+          image={album.image}
+          album={album.name}
+          key={album.id}
+          artist={props.Name}
+        />
+      ))}
+    </>
+  );
+};
 
-
-
-        </>
-    )
-}
-
-export default Songs
+export default Songs;

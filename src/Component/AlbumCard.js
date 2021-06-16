@@ -1,5 +1,4 @@
 import React from "react";
-import Adele from "./Adele.png";
 
 const AlbumCard = ({ image, album, key, artist }) => {
   return (

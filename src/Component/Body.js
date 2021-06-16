@@ -13,11 +13,13 @@ const Body = ({ ArtistDetails }) => {
     image: null,
   };
   let artistName = null;
+  let listOfArtist = [];
 
   if (ArtistDetails) {
-    artistInfo = ArtistDetails;
-    listOfAlbums = ArtistDetails.albums;
-    artistName = ArtistDetails.name;
+    listOfArtist = ArtistDetails;
+    artistInfo = ArtistDetails[0];
+    listOfAlbums = ArtistDetails[0].albums;
+    artistName = ArtistDetails[0].name;
   }
 
   return (
@@ -31,15 +33,7 @@ const Body = ({ ArtistDetails }) => {
 
         <Col>
           <div>
-            <Songs />
-          </div>
-        </Col>
-      </Row>
-
-      <Row className="p-4">
-        <Col>
-          <div>
-            <ListOfArtists albums={listOfAlbums} Name={artistName} />
+            <Songs albums={listOfAlbums} Name={artistName} />
           </div>
         </Col>
       </Row>
@@ -48,6 +42,14 @@ const Body = ({ ArtistDetails }) => {
         <Col>
           <div>
             <Albums albums={listOfAlbums} Name={artistName} />
+          </div>
+        </Col>
+      </Row>
+
+      <Row className="p-4">
+        <Col>
+          <div>
+            <ListOfArtists Artists={listOfArtist} />
           </div>
         </Col>
       </Row>

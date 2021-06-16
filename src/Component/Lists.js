@@ -1,33 +1,26 @@
-import React from 'react'
-import Adele from './Adele.png'
-import {  Row, Col } from 'react-bootstrap'
+import React from "react";
+import { Row, Col } from "react-bootstrap";
 
-
-const List = () => {
-    return (
-        <Row className="Lists">
-            <Col lg="auto">
-            <img className="Lists__image" src={Adele}/>
-            </Col>
-            <Col>
-            <Row>
-            <span>
-                All I Ask
-            </span>
-            </Row>
-            <Row>
-
-            <span>Adele</span>
-            </Row>
-            </Col>
-
-            <Col  lg="auto">
-            <div>
-                4:00
-            </div>
-            </Col>
+const List = ({ image, album, key, artist }) => {
+  return (
+    <Row className="Lists">
+      <Col lg="auto">
+        <img className="Lists__image" src={image} />
+      </Col>
+      <Col>
+        <Row>
+          <h6>{album}</h6>
         </Row>
-    )
-}
+        <Row>
+          <span>{artist}</span>
+        </Row>
+      </Col>
 
-export default List
+      <Col lg="auto">
+        <div>4:00</div>
+      </Col>
+    </Row>
+  );
+};
+
+export default List;

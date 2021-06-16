@@ -33,7 +33,7 @@ const Header = (props) => {
   if (loading) return <h1>Loading!</h1>;
 
   if (data) {
-    artistDetails = data.queryArtists[0];
+    artistDetails = data.queryArtists;
   }
 
   return (
