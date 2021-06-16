@@ -1,51 +1,60 @@
-import React from 'react'
-import { Navbar, Form, FormControl, Button, Row, Col, Container } from 'react-bootstrap'
-import spotifys from './spotifys.png'
-import { useLazyQuery } from '@apollo/client';
-import {SEARCH_ARTIST_QUERY} from '../GraphQL/Queries'
+import React from "react";
+import {
+  Navbar,
+  Form,
+  FormControl,
+  Button,
+  Row,
+  Col,
+  Container,
+} from "react-bootstrap";
+import spotifys from "./spotifys.png";
+import { useLazyQuery } from "@apollo/client";
+import { SEARCH_ARTIST_QUERY } from "../GraphQL/Queries";
+import Body from "./Body";
 
-
-const Header = () => {
-
-    const [searchArtist,{loading, error, data}] = useLazyQuery(SEARCH_ARTIST_QUERY, {
-        variables: {byName: 'Billie Eilish'},
-    });
-
-
-
-    const handleKeyDown = (event) => {
-        if (event.key === 'Enter') {
-          searchArtist()
-        }
-      }
-
-    if (error) return <h1>Error Found!</h1>
-    if (data){
-        console.log('hekhek',data)
+const Header = (props) => {
+  const [searchArtist, { loading, error, data }] = useLazyQuery(
+    SEARCH_ARTIST_QUERY,
+    {
+      variables: { byName: "Billie Eilish" },
     }
+  );
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      searchArtist();
+    }
+  };
 
+  let artistDetails = null;
 
-    return (
+  if (error) return <h1>Error Found!</h1>;
+  if (loading) return <h1>Loading!</h1>;
 
-        <>
-        <Row className="header">
-            <Col lg="auto">
-                <img className="header__image" src={spotifys}></img>
-            </Col>
-            <Col xs lg="4" className="ml-auto">
-                <FormControl type="text" placeholder="Search Artist" onKeyDown={handleKeyDown} />
-            </Col>
-            <Col>
-                {/* <Button variant="outline-success" >Search</Button> */}
-            </Col>
-        </Row>
+  if (data) {
+    artistDetails = data.queryArtists[0];
+  }
 
+  return (
+    <>
+      <Row className="header">
+        <Col lg="auto">
+          <img className="header__image" src={spotifys}></img>
+        </Col>
+        <Col xs lg="4" className="ml-auto">
+          <FormControl
+            type="text"
+            placeholder="Search Artist"
+            onKeyDown={handleKeyDown}
+          />
+        </Col>
+        <Col>{/* <Button variant="outline-success" >Search</Button> */}</Col>
+      </Row>
 
-        </>
+      <Body ArtistDetails={artistDetails} />
+    </>
+  );
+};
 
-
-    )
-}
-
-export default Header
+export default Header;

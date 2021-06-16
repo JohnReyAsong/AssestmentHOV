@@ -1,24 +1,24 @@
-import { gql } from '@apollo/client'
+import { gql } from "@apollo/client";
 
-export const SEARCH_ARTIST_QUERY = gql` 
-{
-  queryArtists(byName: "Olivia Rodrigo") {
-    name
-    id
-    image
-    albums {
+export const SEARCH_ARTIST_QUERY = gql`
+  {
+    queryArtists(byName: "Ed Sheeran") {
       name
       id
       image
-      tracks {
-        id
+      albums {
         name
-        preview_url
-        artists {
+        id
+        image
+        tracks {
+          id
           name
+          preview_url
+          artists {
+            name
+          }
         }
       }
     }
   }
-}
 `;
