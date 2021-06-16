@@ -30,7 +30,6 @@ const Header = (props) => {
   let artistDetails = null;
 
   if (error) return <h1>Error Found!</h1>;
-  if (loading) return <h1>Loading!</h1>;
 
   if (data) {
     artistDetails = data.queryArtists;

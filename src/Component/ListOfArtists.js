@@ -1,19 +1,18 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import AlbumCard from "./AlbumCard";
+import Card from "./Card";
 
 const ListOfArtists = (Artists) => {
-  console.log("artista", Artists.Artists);
 
   let setOfArtists = Artists.Artists;
 
   return (
     <>
       <Row>
-        <div className="body__title">Artists</div>
+        <div className="body__title" style={setOfArtists.length == 0 ? {display:"none"} : {}} >Artists</div>
         {setOfArtists.map((Artist) => (
           <Col lg="auto">
-            <AlbumCard
+            <Card
               image={Artist.image}
               album={Artist.name}
               key={Artist.id}

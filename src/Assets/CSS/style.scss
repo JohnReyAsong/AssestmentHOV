@@ -1,8 +1,16 @@
-/* .container{
-    border: 1px solid red;
-    height: 100vh;
-    width: 100%;
-} */
+.main-container {
+  background-color: #121212;
+  height: 100%;
+}
+
+html {
+  background-color: #121212;
+}
+
+.form-control {
+  border-radius: 2rem;
+}
+
 
 .header {
   background-color: #090909;
@@ -19,28 +27,7 @@
   }
 }
 
-// .grid-container {
-//     gap: 20px;
-//     display: grid;
-//     padding: 2rem;
-//     grid-template-columns: repeat(4, 1fr);
-//     grid-template-rows: 300px auto;
-// }
-
 .body {
-  &__artist {
-    grid-column: 1/2;
-    grid-row: 1/2;
-    height: 50vh;
-  }
-  &__songs {
-    grid-column: 2/5;
-    grid-row: 1/2;
-  }
-  &__album {
-    background-color: red;
-    grid-column: 1/5;
-  }
   &__title {
     font-size: 24px;
     font-weight: 700;
@@ -52,20 +39,8 @@
   }
 }
 
-.main-container {
-  background-color: #121212;
-  height: 100%;
-}
 
-html {
-  background-color: #121212;
-}
-
-.form-control {
-  border-radius: 2rem;
-}
-
-.Cards {
+.Main-Artist-Card {
   background-color: #181818;
   height: 242px;
   width: 424px;
@@ -96,7 +71,7 @@ html {
   }
 }
 
-.Album-Cards {
+.Card {
   background-color: #181818;
   border-radius: 5px;
   width: 189px;
@@ -124,8 +99,40 @@ html {
   }
 }
 
-.album-cards {
-  display: flex;
+
+.Genre-Card {
+  background-color: #181818;
+  border-radius: 5px;
+  width: 224px;
+  height: 224px;
+  color: white;
+  padding: 1rem;
+  overflow: hidden;
+  
+
+  &__image {
+    height: 120px;
+    width: 120px;
+    margin-bottom: 20px;
+    position: relative;
+    left: 105px;
+    top: 60px;
+    transform: rotate(25deg);
+  }
+  &__title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 75ch;
+  }
+
+  &__subtext {
+    width: 4.1rem;
+    font-size: 12px;
+  }
+  &:hover {
+    background-color: #282828;
+  }
 }
 
 .Lists {

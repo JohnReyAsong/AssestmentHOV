@@ -4,10 +4,11 @@ import Songs from "./Songs";
 import Albums from "./Albums";
 import { Row, Col } from "react-bootstrap";
 import ListOfArtists from "./ListOfArtists";
+import Genres from "./Genres";
+
 
 const Body = ({ ArtistDetails }) => {
   let listOfAlbums = [];
-  let ListOfSongs = null;
   let artistInfo = {
     name: null,
     image: null,
@@ -24,7 +25,16 @@ const Body = ({ ArtistDetails }) => {
 
   return (
     <>
+      <Row className="p-4" style={artistName ? {display:'none'} : {}}>
+        <Col>
+          <div>
+            <Genres  />
+          </div>
+        </Col>
+      </Row>
+
       <Row className="p-4">
+
         <Col lg="auto">
           <div>
             <Artist Name={artistInfo.name} Image={artistInfo.image} />
@@ -41,7 +51,7 @@ const Body = ({ ArtistDetails }) => {
       <Row className="p-4">
         <Col>
           <div>
-            <Albums albums={listOfAlbums} Name={artistName} />
+            <ListOfArtists Artists={listOfArtist} />
           </div>
         </Col>
       </Row>
@@ -49,10 +59,12 @@ const Body = ({ ArtistDetails }) => {
       <Row className="p-4">
         <Col>
           <div>
-            <ListOfArtists Artists={listOfArtist} />
+            <Albums albums={listOfAlbums} Name={artistName} />
           </div>
         </Col>
       </Row>
+
+    
     </>
   );
 };

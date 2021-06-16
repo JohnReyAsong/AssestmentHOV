@@ -6,7 +6,7 @@ const Songs = (props) => {
 
   return (
     <>
-      <div className="body__title">Songs</div>
+      <div className="body__title" style={artistAlbum.length == 0 ? {display:"none"} : {}}>Songs</div>
 
       {artistAlbum.slice(1, 5).map((album) => (
         <Lists

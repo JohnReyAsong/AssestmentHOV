@@ -1,5 +1,5 @@
 import React from "react";
-import AlbumCard from "./AlbumCard";
+import Card from "./Card";
 import { Row, Col } from "react-bootstrap";
 
 const Albums = (props) => {
@@ -8,10 +8,10 @@ const Albums = (props) => {
   return (
     <>
       <Row>
-        <div className="body__title">Albums</div>
+        <div className="body__title" style={artistAlbum.length == 0 ? {display:"none"} : {}}>Albums</div>
         {artistAlbum.map((album) => (
           <Col lg="auto">
-            <AlbumCard
+            <Card
               image={album.image}
               album={album.name}
               key={album.id}
