@@ -8,7 +8,7 @@ import {
   Col,
   Container,
 } from "react-bootstrap";
-import spotifys from "./spotifys.png";
+import spotifys from "../Assets/Images/spotifys.png";
 import { useLazyQuery } from "@apollo/client";
 import { SEARCH_ARTIST_QUERY } from "../GraphQL/Queries";
 import Body from "./Body";
