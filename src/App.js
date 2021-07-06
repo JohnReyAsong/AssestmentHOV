@@ -8,7 +8,8 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./Component/Header";
 import Body from "./Component/Body";
-import "./Assets/CSS/style.scss";
+import "./Assets/CSS/main.scss";
+import Sidebar from "./Layout/Sidebar";
 
 function App() {
   const client = new ApolloClient({
@@ -19,7 +20,12 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="main-container">
-        <Header />
+        <header>
+          <Header />
+        </header>
+        <nav className="sidebar">
+          <Sidebar />
+        </nav>
       </div>
     </ApolloProvider>
   );

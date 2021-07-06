@@ -6,7 +6,6 @@ import { Row, Col } from "react-bootstrap";
 import ListOfArtists from "./ListOfArtists";
 import Genres from "./Genres";
 
-
 const Body = ({ ArtistDetails }) => {
   let listOfAlbums = [];
   let artistInfo = {
@@ -24,17 +23,16 @@ const Body = ({ ArtistDetails }) => {
   }
 
   return (
-    <>
-      <Row className="p-4" style={artistName ? {display:'none'} : {}}>
+    <main>
+      <Row style={artistName ? { display: "none" } : {}}>
         <Col>
           <div>
-            <Genres  />
+            <Genres />
           </div>
         </Col>
       </Row>
 
-      <Row className="p-4">
-
+      <Row>
         <Col lg="auto">
           <div>
             <Artist Name={artistInfo.name} Image={artistInfo.image} />
@@ -48,7 +46,7 @@ const Body = ({ ArtistDetails }) => {
         </Col>
       </Row>
 
-      <Row className="p-4">
+      <Row>
         <Col>
           <div>
             <ListOfArtists Artists={listOfArtist} />
@@ -56,16 +54,14 @@ const Body = ({ ArtistDetails }) => {
         </Col>
       </Row>
 
-      <Row className="p-4">
+      <Row>
         <Col>
           <div>
             <Albums albums={listOfAlbums} Name={artistName} />
           </div>
         </Col>
       </Row>
-
-    
-    </>
+    </main>
   );
 };
 

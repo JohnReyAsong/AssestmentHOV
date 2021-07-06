@@ -1,42 +1,24 @@
+@import "layout/sidebar";
+@import "layout/header";
+@import "layout/body";
+
 .main-container {
-  background-color: #121212;
+  background-color: #1e1e1e;
   height: 100%;
+  display: flex;
 }
 
 html {
-  background-color: #121212;
+  height: 100%;
+  width: 100%;
+  background-color: #1e1e1e;
 }
 
 .form-control {
   border-radius: 2rem;
 }
 
-.header {
-  background-color: #090909;
-  padding: 13px;
-  width: 100.7%;
-  &__text {
-    color: white;
-    font-size: 1.3rem;
-  }
-  &__image {
-    height: 40px;
-    width: auto;
-    color: white;
-  }
-}
-
-.body {
-  &__title {
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: -0.04em;
-    line-height: 28px;
-    text-transform: none;
-    margin-bottom: 10px;
-    color: white;
-  }
-}
+// Body
 
 .Main-Artist-Card {
   background-color: #181818;
@@ -99,9 +81,9 @@ html {
 
 .Genre-Card {
   background-color: #181818;
-  border-radius: 5px;
-  width: 224px;
-  height: 224px;
+  border-radius: 10px;
+  width: 207px;
+  height: auto;
   color: white;
   padding: 1rem;
   overflow: hidden;
@@ -161,4 +143,9 @@ html {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: gray;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
 }

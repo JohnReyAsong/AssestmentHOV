@@ -12,6 +12,8 @@ import spotifys from "../Assets/Images/spotifys.png";
 import { useLazyQuery } from "@apollo/client";
 import { SEARCH_ARTIST_QUERY } from "../GraphQL/Queries";
 import Body from "./Body";
+import { BiSearch } from "react-icons/bi";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 const Header = (props) => {
   const [searchArtist, { loading, error, data }] = useLazyQuery(
@@ -37,21 +39,31 @@ const Header = (props) => {
 
   return (
     <>
-      <Row className="header">
-        <Col lg="auto">
-          <img className="header__image" src={spotifys}></img>
-        </Col>
-        <Col xs lg="4" className="ml-auto">
-          <FormControl
-            type="text"
-            placeholder="Search Artist"
+      <div className="header">
+        <span className="header__position">
+          <button className="header__pager-button">
+            <BsChevronLeft className="header__chevron" />
+          </button>
+          <button className="header__pager-button">
+            <BsChevronRight className="header__chevron" />
+          </button>
+
+          <BiSearch className="header__search-icon" />
+          <input
+            className="header__search"
+            type="search"
+            placeholder="Artist, songs, or podcasts"
             onKeyDown={handleKeyDown}
           />
-        </Col>
-        <Col>{/* <Button variant="outline-success" >Search</Button> */}</Col>
-      </Row>
-
-      <Body ArtistDetails={artistDetails} />
+        </span>
+        <span>
+          <span className="header__text">SIGN UP</span>
+          <button className="header__button">LOG IN</button>
+        </span>
+      </div>
+      <body className="body">
+        <Body ArtistDetails={artistDetails} />
+      </body>
     </>
   );
 };
