@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const SEARCH_ARTIST_QUERY = gql`
-  {
-    queryArtists(byName: "Ed Sheeran") {
+  query Artist($byName: String!) {
+    queryArtists(byName: $byName) {
       name
       id
       image
@@ -10,14 +10,6 @@ export const SEARCH_ARTIST_QUERY = gql`
         name
         id
         image
-        tracks {
-          id
-          name
-          preview_url
-          artists {
-            name
-          }
-        }
       }
     }
   }

@@ -1,31 +1,25 @@
 import React from "react";
-import {
-  Navbar,
-  Form,
-  FormControl,
-  Button,
-  Row,
-  Col,
-  Container,
-} from "react-bootstrap";
-import spotifys from "../Assets/Images/spotifys.png";
 import { useLazyQuery } from "@apollo/client";
 import { SEARCH_ARTIST_QUERY } from "../GraphQL/Queries";
 import Body from "./Body";
 import { BiSearch } from "react-icons/bi";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { useState } from "react";
 
-const Header = (props) => {
+const Header = () => {
+  const [byName, setByName] = useState("");
+
   const [searchArtist, { loading, error, data }] = useLazyQuery(
     SEARCH_ARTIST_QUERY,
     {
-      variables: { byName: "Billie Eilish" },
+      variables: { byName },
     }
   );
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       searchArtist();
+      setByName(event.target.value);
     }
   };
 
@@ -34,6 +28,7 @@ const Header = (props) => {
   if (error) return <h1>Error Found!</h1>;
 
   if (data) {
+    console.log("hehe", data);
     artistDetails = data.queryArtists;
   }
 
