@@ -1,48 +1,29 @@
 import React from "react";
 import spotifys from "../Assets/Images/spotifys.png";
-import { RiHome5Line } from "react-icons/ri";
-import { BiSearch } from "react-icons/bi";
-import { VscLibrary } from "react-icons/vsc";
+import { NavLink } from "react-router-dom";
+import { SidebarData } from "./SidebarData";
 
 const Sidebar = () => {
   return (
     <>
-      <img className="sidebar__image" src={spotifys}></img>
+      <img className="sidebar__image" alt="spotify_logo" src={spotifys}></img>
       <ul>
-        <li className="sidebar__list">
-          <RiHome5Line color="white" className="sidebar__list-img" />
-          <span className="sidebar__list-name">Home</span>
-        </li>
-        <li className="sidebar__list">
-          <BiSearch color="white" className="sidebar__list-img" />
-          <span className="sidebar__list-name">Search</span>
-        </li>
-        <li className="sidebar__list">
-          <VscLibrary color="white" className="sidebar__list-img" />
-          <span className="sidebar__list-name">Your Library</span>
-        </li>
+        {SidebarData.map((item, index) => {
+          return (
+            <li key={index}>
+              <NavLink
+                exact
+                to={item.path}
+                className="sidebar__list"
+                activeClassName="sidebar__list sidebar__list--active"
+              >
+                <span className="sidebar__list-img">{item.icon}</span>
+                <span className="sidebar__list-name">{item.title}</span>
+              </NavLink>
+            </li>
+          );
+        })}
       </ul>
-
-      {/* <ul>
-        <li className="sidebar__list">
-          <span>
-            <RiHome5Line size="30px" color="white" />
-          </span>
-          <span className="sidebar__list-name">Home</span>
-        </li>
-        <li className="sidebar__list">
-          <span>
-            <RiHome5Line size="30px" color="white" />
-          </span>
-          <span className="sidebar__list-name">Search</span>
-        </li>{" "}
-        <li className="sidebar__list">
-          <span>
-            <RiHome5Line size="30px" color="white" />
-          </span>
-          <span className="sidebar__list-name">Your Library</span>
-        </li>
-      </ul> */}
     </>
   );
 };

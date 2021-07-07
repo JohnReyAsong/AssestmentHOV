@@ -10,6 +10,7 @@ import Header from "./Component/Header";
 import Body from "./Component/Body";
 import "./Assets/CSS/main.scss";
 import Sidebar from "./Layout/Sidebar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const client = new ApolloClient({
@@ -24,7 +25,13 @@ function App() {
           <Header />
         </header>
         <nav className="sidebar">
-          <Sidebar />
+          <Router>
+            <Sidebar />
+
+            <Switch>
+              <Route path="/" />
+            </Switch>
+          </Router>
         </nav>
       </div>
     </ApolloProvider>
